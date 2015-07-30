@@ -1,3 +1,4 @@
+var path = require('path');
 module.exports = {
     entry : __dirname + '/index.js',
     output : {
@@ -8,12 +9,17 @@ module.exports = {
     module : {
         loaders : [ {
             test : /\.jsx?$/,
-            loader : 'babel'
-        },{
+            loader : 'babel-loader'
+        }, {
             test : /\.less|\.css/,
             loader : "style-loader!css-loader!less-loader"
-        } ],
-        noParse : [ __dirname + '/node_modules/react' ]
+        }, {
+            test : /\.html$/,
+            loader : "html-loader"
+        }, {
+            test : /\.(png|jpg|svg|woff2?|eot|ttf)$/,
+            loader : 'url-loader?limit=8000'
+        }],
     },
-    externals : [ 'react', 'react-select', 'promise' ]
+    externals : [ 'react', 'promise' ]
 };

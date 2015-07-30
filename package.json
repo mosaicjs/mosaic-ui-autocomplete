@@ -26,11 +26,13 @@
     "babel-loader": "^5.3.2",
     "css-loader": "^0.15.6",
     "expect.js": "^0.3.1",
+    "file-loader": "^0.8.4",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
     "mocha": "^2.2.5",
     "node-libs-browser": "^0.5.2",
     "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
     "webpack": "^1.10.1"
   },
   "dependencies": {
