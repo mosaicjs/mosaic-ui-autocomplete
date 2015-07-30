@@ -1,2 +1,2 @@
 import 'react-select/less/select.less';
-import './AutocompleteBox.less';
+import './lib/AutocompleteBox.less';
