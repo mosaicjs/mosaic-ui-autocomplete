@@ -21,5 +21,5 @@ module.exports = {
             loader : 'url-loader?limit=8000'
         }],
     },
-    externals : [ 'react', 'promise' ]
+    externals : [ 'react', 'promise', 'mosaic-dataset' ]
 };
