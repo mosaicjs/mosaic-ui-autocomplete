@@ -126,6 +126,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _SuggestionView = __webpack_require__(10);
 
+	var _SuggestionView2 = _interopRequireDefault(_SuggestionView);
+
 	/**
 	 * This class accepts two parameters: the "selected" object and the "search".
 	 * The "selected" DataSet instance contains already selected items. The "search"
@@ -137,8 +139,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * method defining items visualization in the suggestion list and in the list of
 	 * already selected items.
 	 */
-
-	var _SuggestionView2 = _interopRequireDefault(_SuggestionView);
 
 	var AutocompleteBox = (function (_React$Component) {
 	    _inherits(AutocompleteBox, _React$Component);
@@ -262,7 +262,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return item.getAdapter(_SelectionView2['default']);
 	            });
 	            return _react2['default'].createElement(_reactSelect2['default'], _extends({
-	                ref: "select",
+	                key: this.props.key,
+	                ref: 'select',
 	                multi: true,
 	                clearable: true,
 	                searchable: true,
