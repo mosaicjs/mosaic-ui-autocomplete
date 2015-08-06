@@ -1,7 +1,7 @@
 {
   "name": "mosaic-ui-autocomplete",
   "version": "0.1.0",
-  "description": "Default application",
+  "description": "Autocompletion module based on react-select",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec ./test/index.js",
@@ -14,7 +14,7 @@
     "url": "https://github.com/mosaicjs/mosaic-ui-autocomplete"
   },
   "keywords": [
-    "application"
+    "autocompletion"
   ],
   "author": "Mikhail Kotelnikov <mikhail.kotelnikov@ubimix.com>",
   "license": "MIT",
