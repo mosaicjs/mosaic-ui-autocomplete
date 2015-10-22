@@ -36,9 +36,10 @@
     "webpack": "^1.10.1"
   },
   "dependencies": {
-    "mosaic-dataset": "^0.1.10",
-    "promise": "^7.0.3",
-    "react": "^0.13.3",
-    "react-select": "^0.5.6"
+    "mosaic-dataset": "^0.1.13",
+    "promise": "^7.0.4",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-select": "^0.6.12"
   }
 }
