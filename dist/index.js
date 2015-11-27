@@ -167,6 +167,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            };
 	        }
+	    }, {
+	        key: 'closeMenu',
+	        value: function closeMenu() {
+	            this.refs.innerSelect.closeMenu();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var noResultsText = this.props.noResultsText;
+	            var _state = this.state;
+	            var isLoading = _state.isLoading;
+	            var options = _state.options;
+
+	            if (this.props.isLoading) isLoading = true;
+	            var placeholder = isLoading ? this.props.loadingPlaceholder : this.props.placeholder;
+	            if (!options.length) {
+	                if (this._lastInput.length < this.props.minimumInput) noResultsText = this.props.searchPromptText;
+	                if (isLoading) noResultsText = this.props.searchingText;
+	            }
+	            return _react2['default'].createElement(_reactSelect2['default'], _extends({}, this.props, {
+	                ref: 'innerSelect',
+	                isOpen: false,
+	                isLoading: isLoading,
+	                noResultsText: noResultsText,
+	                onInputChange: this.loadOptions,
+	                options: options,
+	                placeholder: placeholder
+	            }));
+	        }
 	    }]);
 
 	    return FixedAsync;
@@ -211,6 +240,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.state = {
 	                views: this._getSelectedItemViews()
 	            };
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this._closeSuggestions();
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
@@ -270,12 +304,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    var index = {};
 	                    if (exclude && exclude.length) {
 	                        exclude.forEach(function (excluded) {
-	                            index[excluded] = true;
+	                            console.log('excluded: ', excluded);
+	                            index[excluded.item.id] = true;
 	                        });
 	                    }
-	                    list.forEach(function (item) {
-	                        if (!index[item.value]) {
-	                            result.push(item);
+	                    list.forEach(function (view) {
+	                        if (!index[view.item.id]) {
+	                            result.push(view);
 	                        }
 	                    });
 	                })();
@@ -285,12 +320,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_onUpdate',
 	        value: function _onUpdate(values) {
-	            console.log('>>>>', values);
 	            var selection = this.props.selected;
 	            var items = values.map(function (w) {
 	                return w.item;
 	            });
+	            this._closeSuggestions();
 	            selection.setItems(items);
+	        }
+	    }, {
+	        key: '_closeSuggestions',
+	        value: function _closeSuggestions() {
+	            setTimeout((function () {
+	                this.refs.select.closeMenu();
+	            }).bind(this), 10);
 	        }
 	    }, {
 	        key: 'shouldComponentUpdate',
@@ -305,10 +347,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var selected = this.props.selected;
 	            this.lastRenderedRevision = selected.version;
 	            var views = this.state.views;
-	            return _react2['default'].createElement(FixedAsync,
-	            //                key={this.props.key}
-	            //                ref="select"
-	            _extends({ multi: true,
+	            return _react2['default'].createElement(FixedAsync, _extends({
+	                key: this.props.key,
+	                ref: 'select',
+	                multi: true,
+	                isOpen: false,
 	                ignoreAccents: true,
 	                ignoreCase: true,
 	                clearable: true,
