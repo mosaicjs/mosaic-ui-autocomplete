@@ -304,7 +304,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    var index = {};
 	                    if (exclude && exclude.length) {
 	                        exclude.forEach(function (excluded) {
-	                            console.log('excluded: ', excluded);
 	                            index[excluded.item.id] = true;
 	                        });
 	                    }
