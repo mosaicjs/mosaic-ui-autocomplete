@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mosaicjs/mosaic-ui-autocomplete"
+    "url": "https://github.com/mosaicjs/mosaic-ui-autocomplete#8f342d55c615a675ab5363d9c6fb80c5bbaa12c6"
   },
   "keywords": [
     "autocompletion"
